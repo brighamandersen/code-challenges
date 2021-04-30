@@ -15,18 +15,14 @@ toy apply bay cat sand dog fish
 >java MergeSort 0 3 was had him and you his the but
 and had him was you his the but  */
 
-public class Merge
-
-{
-   public static void sort(Comparable[] a)
-   {
+public class MergeSort {
+   public static void sort(Comparable[] a) {
       Comparable[] aux = new Comparable[a.length];
       sort(a, aux, 0, a.length);
    }
 
    private static void sort(Comparable[] a, Comparable[] aux,
-                            int lo, int hi)
-   {  // Sort a[lo, hi).
+                            int lo, int hi) {  // Sort a[lo, hi).
       if (hi - lo <= 1) return;
       int mid = lo + (hi-lo)/2;
       sort(a, aux, lo, mid);
@@ -41,6 +37,7 @@ public class Merge
          a[k] = aux[k];
    }
 
-   public static void main(String[] args)
-   {  /* See Program 4.2.4. */  }
+   public static void main(String[] args) {
+      /* See Program 4.2.4. */  
+   }
 }
