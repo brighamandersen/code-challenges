@@ -18,47 +18,52 @@ The second point is (4.0,5.2,3.5)
 Their Euclidean distance is 2.90
 */
 
+import java.text.*;
 
 
-	//Create class Point and declare final double variables x,y,z for coordinates
-public class Point{ 			
+public class Point { 			
 	double x;					
 	double y;
 	double z;
 
-		//Initializes a point given as input with THIS keyword
-	public Point(double x, double y, double z){			
+	public Point(double x, double y, double z) {			
 		this.x = x;
 		this.y = y;
 		this.z = z;
-}
+	}
 		//Returns Euclidean distance between the points stored and call math.sqrt method
-	public double distanceTo(Point second){  	  
+	public double distanceTo(Point second) {  	  
 		double dx = this.x - second.x;				
 		double dy = this.y - second.y;
 		double dz = this.z - second.z;
-	return Math.sqrt(dx*dx + dy*dy + dz*dz);		 
- }
-			//Call toString method to return the string representation of the point
-		public String toString(){ return "(" + x + "," + y + "," + z + ")";    
- }
 
-		//Call main method. Declare and initialize variables a,b,c,d,e,f and call parseDouble method.
-public static void main(String[] args){				
-	double a = Double.parseDouble(args[0]);			
-	double b = Double.parseDouble(args[1]);			
-	double c = Double.parseDouble(args[2]);			
-	double d = Double.parseDouble(args[3]);
-	double e = Double.parseDouble(args[4]);			
-	double f = Double.parseDouble(args[5]);			
-		
-		//Delare point type and initialize. 
-	Point t = new Point(a, b, c);					
-	Point w = new Point(d, e, f);					
-		
-		//Call print method
-	System.out.println("The first point is " + t);									
-	System.out.println("The second point is " + w);									
-	System.out.println("Their Euclidean distance is " + t.distanceTo(w));			
+		return Math.sqrt(dx*dx + dy*dy + dz*dz);		 
+ 	}
+
+	public String toString() {
+		return "(" + x + "," + y + "," + z + ")";    
+ 	}
+
+	public static void main(String[] args){				
+		double a = Double.parseDouble(args[0]);			
+		double b = Double.parseDouble(args[1]);			
+		double c = Double.parseDouble(args[2]);			
+		double d = Double.parseDouble(args[3]);
+		double e = Double.parseDouble(args[4]);			
+		double f = Double.parseDouble(args[5]);			
+			
+		Point t = new Point(a, b, c);					
+		Point w = new Point(d, e, f);
+
+		double distance = t.distanceTo(w);	
+
+		System.out.println("The first point is " + t);									
+		System.out.println("The second point is " + w);	
+		System.out.println("Their Euclidean distance is " + printRoundedDistance(distance));			
+	}
+
+	public static String printRoundedDistance(double num) {
+		DecimalFormat df = new DecimalFormat("#.##");
+		return df.format(num);
 	}
  }
