@@ -31,7 +31,8 @@ public class Point {
 		this.y = y;
 		this.z = z;
 	}
-		//Returns Euclidean distance between the points stored and call math.sqrt method
+		
+	//Returns Euclidean distance between the points stored and call math.sqrt method
 	public double distanceTo(Point second) {  	  
 		double dx = this.x - second.x;				
 		double dy = this.y - second.y;

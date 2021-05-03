@@ -33,7 +33,6 @@ public class ISBN {
 	}
 	
 	static int computeChecksum(String numStr) {
-
 		int sum = 0;
 		for (int i = 0; i <= 8; i++) {
 			int multiplier = 10 - i;
@@ -42,6 +41,10 @@ public class ISBN {
 		}
 
 		int remainder = sum % 11;
+
+		if (remainder == 0) {
+			return 0;
+		}
 
 		return 11 - remainder;
 	}
@@ -55,9 +58,6 @@ public class ISBN {
 	static String stringifyChecksum(int checksum) {
 		if (checksum == 10) {
 			return "X";
-		}
-		if (checksum == 11) {
-			return "0";
 		}
 		return String.valueOf(checksum);
 	}
