@@ -1,4 +1,4 @@
-// Compile and run in one line using 'g++ thermometer.cpp && ./a.exe' or './a.out'
+// Compile and run in one line using 'g++ thermostat.cpp && ./a.exe' or './a.out'
 
 #include <iostream>
 #include <string>
