@@ -46,7 +46,7 @@ bool performTurn(bool xTurn, int row, int col) {
     return true;
 }
 
-bool checkCombination(string spot1, string spot2, string spot3) {
+bool isWinningCombo(string spot1, string spot2, string spot3) {
     if (!isTaken(spot1) || !isTaken(spot2) || !isTaken(spot3)) return false;
     if (spot1 == spot2 && spot2 == spot3) return true;
     return false;
@@ -54,28 +54,28 @@ bool checkCombination(string spot1, string spot2, string spot3) {
 
 bool someoneWon() {
     // Top left -> bottom right diagonal
-    if (checkCombination(board[0][0], board[1][1], board[2][2])) return true;
+    if (isWinningCombo(board[0][0], board[1][1], board[2][2])) return true;
 
     // Bottom left => top right diagonal
-    if (checkCombination(board[2][0], board[1][1], board[0][2])) return true;
+    if (isWinningCombo(board[2][0], board[1][1], board[0][2])) return true;
 
     // Top row
-    if (checkCombination(board[0][0], board[0][1], board[0][2])) return true;
+    if (isWinningCombo(board[0][0], board[0][1], board[0][2])) return true;
 
     // Middle row
-    if (checkCombination(board[1][0], board[1][1], board[1][2])) return true;
+    if (isWinningCombo(board[1][0], board[1][1], board[1][2])) return true;
 
     // Bottom row
-    if (checkCombination(board[2][0], board[2][1], board[2][2])) return true;
+    if (isWinningCombo(board[2][0], board[2][1], board[2][2])) return true;
 
     // Top col
-    if (checkCombination(board[0][0], board[1][0], board[2][0])) return true;
+    if (isWinningCombo(board[0][0], board[1][0], board[2][0])) return true;
 
     // Middle col
-    if (checkCombination(board[0][1], board[1][1], board[2][1])) return true;
+    if (isWinningCombo(board[0][1], board[1][1], board[2][1])) return true;
 
     // Right col
-    if (checkCombination(board[0][2], board[1][2], board[2][2])) return true;
+    if (isWinningCombo(board[0][2], board[1][2], board[2][2])) return true;
 
     return false;
 }
