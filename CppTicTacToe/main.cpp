@@ -29,7 +29,7 @@ void printBoard() {
 
 bool performTurn(bool xTurn, int row, int col) {
     if (row < 1 || row > BOARD_DIMENSION || col < 1 || col > BOARD_DIMENSION) {
-        cout << "Invalid input.  Keep input between 1 and " + to_string(BOARD_DIMENSION) + "." << endl << endl;
+        cout << "Invalid input.  Keep input a number between 1 and " + to_string(BOARD_DIMENSION) + "." << endl << endl;
         return false;
     }
     
@@ -105,9 +105,13 @@ int main() {
         while (!validInput) {
             cout << "Enter a row #: ";
             cin >> row;
+            cin.clear();
+            cin.ignore(10000, '\n');
 
             cout << "Enter a column #: ";
             cin >> col;
+            cin.clear();
+            cin.ignore(10000, '\n');
 
             if (!performTurn(xTurn, row, col)) continue;
             
