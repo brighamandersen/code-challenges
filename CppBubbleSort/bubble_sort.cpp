@@ -1,39 +1,46 @@
 #include <iostream>
 #include <string>
 
-int main() {
-    int numElements = 10;
-    int A[numElements] = {5, 8, 2, 29, 4, 7, 1, 1321, 46, 6};
+void printItems(int array[], int numItems) {
+    for (int i = 0; i < numItems; i++) {
+            if (i > 0) {
+                std::cout << ", ";
+            }
+            std::cout << array[i];
+        }
+    std::cout << "\n";
+}
+
+void sort(int *array, int numItems) {
     int temp;
     bool didSwap = false;
 
-    for (int i = 0; i < numElements; i++) {
-        if (i > 0) {
-            std::cout << ", ";
-        }
-        std::cout << A[i];
-    }
-    std::cout << "\n";
-
     do {
         didSwap = false;
-        for (int i = 0; i <= (numElements - 2); i++) {
-            if (A[i] > A[i + 1]) {
+        for (int i = 0; i <= (numItems - 2); i++) {
+            if (array[i] > array[i + 1]) {
                 didSwap = true;
-                temp = A[i];
-                A[i] = A[i + 1];
-                A[i + 1] = temp;
+                temp = array[i];
+                array[i] = array[i + 1];
+                array[i + 1] = temp;
             }
         }
     } while (didSwap);
+}
 
-    for (int i = 0; i < numElements; i++) {
-        if (i > 0) {
-            std::cout << ", ";
-        }
-        std::cout << A[i];
-    }
-    std::cout << "\n";
+int main() {
+    int numItems = 10;
+    int A[numItems] = {5, 8, 2, 29, 4, 7, 1, 1321, 46, 6};
+    int *ptr = A;
+
+    // Print items before sort
+    printItems(A, numItems);
+
+    // Swap elements (bubble sort)
+    sort(ptr, numItems);
+
+    // Print items after sort
+    printItems(A, numItems);
 
     return 0;
 }
