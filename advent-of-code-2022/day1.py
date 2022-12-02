@@ -13,7 +13,7 @@ testInput = """1000
 
 10000"""
 
-input = """20576
+actualInput = """20576
 21113
 1865
 
@@ -2266,9 +2266,9 @@ input = """20576
 9624"""
 
 
-def main(input):
+def main(text):
     # Parse input
-    arr = input.split("\n\n")
+    arr = text.split("\n\n")
     arr = [section.split("\n") for section in arr]
     arr = [[int(item) for item in section] for section in arr]
 
@@ -2285,4 +2285,4 @@ def main(input):
     return maxSectionSum
 
 
-main(input)
+main(actualInput)
