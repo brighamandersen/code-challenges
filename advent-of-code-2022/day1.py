@@ -2266,7 +2266,7 @@ actualInput = """20576
 9624"""
 
 
-def main(text):
+def part1(text):
     # Parse input
     arr = text.split("\n\n")
     arr = [section.split("\n") for section in arr]
@@ -2281,8 +2281,26 @@ def main(text):
             maxSectionSum = sectionSum
 
     # Return the overall sum at that area
-    print(maxSectionSum)
     return maxSectionSum
 
 
-main(actualInput)
+def part2(text):
+    # Parse input
+    arr = text.split("\n\n")
+    arr = [section.split("\n") for section in arr]
+    arr = [[int(item) if item else 0 for item in section] for section in arr]
+
+    # Sort by highest to the lowest sum sections
+    arr.sort(key=lambda s: sum(s), reverse=True)
+
+    # Grab top 3 sum sections
+    top3 = arr[:3]
+    top3Sums = [sum(section) for section in top3]
+
+    # Get overall sum from the 3
+    overallSum = sum(top3Sums)
+    return overallSum
+
+
+print(part1(actualInput))
+print(part2(actualInput))
