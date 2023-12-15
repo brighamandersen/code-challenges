@@ -1017,10 +1017,9 @@ for line in document.splitlines():
             num1 = int(char)
             break
 
-    # Find last num
+    # Find last num by looping backwards
     num2 = None
-    reversed_line = line[::-1]
-    for char in reversed_line:
+    for char in reversed(line):
         if char.isnumeric():
             num2 = int(char)
             break
