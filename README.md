@@ -13,9 +13,6 @@ https://leetcode.com/list/xi4ci4ig/
 Big-O Notation Essentials YouTube video
 https://youtu.be/BgLTDT03QtU
 
-My code-challenges GitHub Repo (Challenges I've solved outside of LeetCode)
-https://github.com/brighamband/code-challenges
-
 HashMaps
 - For interviews we assume that HashMaps have good hashing so lookup is O(1). Technically it could be O(n) if has bad hashing and there's lots of collisions.
 
