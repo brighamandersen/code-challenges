@@ -8,13 +8,13 @@ class LinkedList:
     def get_head(self):
         return self.head
 
-    def __getitem__(self, node_idx):
-        out_of_range = node_idx < 0 or node_idx >= self.length
+    def __getitem__(self, node_index):
+        out_of_range = node_index < 0 or node_index >= self.length
         if out_of_range:
             raise IndexError("Index out of range")
 
         current_node = self.head
-        for _ in range(node_idx):
+        for _ in range(node_index):
             current_node = current_node.next
 
         return current_node
@@ -29,8 +29,8 @@ class LinkedList:
         if self.is_empty():
             self.head = new_node
         else:
-            tail_idx = self.length - 1
-            tail_node = self[tail_idx]
+            tail_index = self.length - 1
+            tail_node = self[tail_index]
             tail_node.next = new_node
         self.length += 1
 
